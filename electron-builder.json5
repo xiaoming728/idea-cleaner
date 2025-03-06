@@ -56,7 +56,14 @@
   "nodeGypRebuild": false,
   "npmRebuild": true,
   "extends": null,
-  "publish": null,
+  "publish": {
+    "provider": "github",
+    "owner": "xiaoming728",
+    "repo": "idea-projects-clear",
+    "releaseType": "release",
+    "publishAutoUpdate": true,
+    "private": false
+  },
   "win": {
     "target": [
       {

@@ -1,6 +1,28 @@
 # IDEA Cleaner
 
+<div align="right">
+
+[English](README_EN.md) | 中文
+
+</div>
+
 一个用于清理 IDEA 项目中 node_modules 和 target 文件夹的桌面工具。
+
+## 目录
+
+- [IDEA Cleaner](#idea-cleaner)
+  - [目录](#目录)
+  - [功能特性](#功能特性)
+  - [技术栈](#技术栈)
+  - [开发](#开发)
+  - [截图](#截图)
+  - [下载](#下载)
+    - [Windows](#windows)
+    - [macOS](#macos)
+    - [Linux](#linux)
+  - [许可证](#许可证)
+  - [作者](#作者)
+  - [免责声明](#免责声明)
 
 ## 功能特性
 
@@ -34,6 +56,24 @@ npm run build
 
 ![IDEA Cleaner 主界面](screenshots/main.png)
 
+## 下载
+
+访问 [Releases](../../releases) 页面下载最新版本。
+
+### Windows
+- 通用版（x64 & ARM64）：[IDEA Cleaner-Windows-1.0.0-Setup.exe](../../releases/download/v1.0.0/IDEA%20Cleaner-Windows-1.0.0-Setup.exe)
+- 仅 x64：[IDEA Cleaner-Windows-x64-1.0.0-Setup.exe](../../releases/download/v1.0.0/IDEA%20Cleaner-Windows-x64-1.0.0-Setup.exe)
+- 仅 ARM64：[IDEA Cleaner-Windows-arm64-1.0.0-Setup.exe](../../releases/download/v1.0.0/IDEA%20Cleaner-Windows-arm64-1.0.0-Setup.exe)
+
+### macOS
+- Intel Mac：[IDEA Cleaner-Mac-x64-1.0.0-Installer.dmg](../../releases/download/v1.0.0/IDEA%20Cleaner-Mac-x64-1.0.0-Installer.dmg)
+- Apple 芯片：[IDEA Cleaner-Mac-arm64-1.0.0-Installer.dmg](../../releases/download/v1.0.0/IDEA%20Cleaner-Mac-arm64-1.0.0-Installer.dmg)
+
+### Linux
+- AppImage（通用版）：[IDEA Cleaner-Linux-x86_64-1.0.0.AppImage](../../releases/download/v1.0.0/IDEA%20Cleaner-Linux-x86_64-1.0.0.AppImage)
+- Debian/Ubuntu：[IDEA Cleaner-Linux-amd64-1.0.0.deb](../../releases/download/v1.0.0/IDEA%20Cleaner-Linux-amd64-1.0.0.deb)
+- RedHat/Fedora/CentOS：[IDEA Cleaner-Linux-x86_64-1.0.0.rpm](../../releases/download/v1.0.0/IDEA%20Cleaner-Linux-x86_64-1.0.0.rpm)
+
 ## 许可证
 
 MIT
@@ -65,3 +105,8 @@ MIT
    - 本工具主要用于清理开发项目中的临时文件和构建产物
    - 如在使用过程中发现 bug，欢迎在 GitHub 提交 issue
    - 使用本工具即表示您同意本免责声明的所有条款
+
+---
+<div align="center">
+<a href="#idea-cleaner">返回顶部</a>
+</div>
