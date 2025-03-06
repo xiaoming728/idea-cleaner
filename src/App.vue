@@ -1,7 +1,7 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
-import { Folder, Search, Delete, RefreshRight } from '@element-plus/icons-vue'
+import { Folder, Search, Delete, RefreshRight, Loading } from '@element-plus/icons-vue'
 
 // 声明 electron 对象
 const electron = window.electron
@@ -14,6 +14,8 @@ const scanResults = ref({
   targets: []
 })
 const selectedRows = ref([])
+const deleting = ref(false)
+const deleteProgress = ref(0)
 
 // 计算属性：所有结果
 const allResults = computed(() => {
@@ -100,6 +102,9 @@ const handleBatchDelete = async () => {
 
   try {
     const paths = selectedRows.value.map(row => row.path)
+    deleting.value = true
+    deleteProgress.value = 0
+    
     const results = await electron.ipcRenderer.invoke('delete-directories', paths)
     
     // 处理删除结果
@@ -121,6 +126,9 @@ const handleBatchDelete = async () => {
     }
   } catch (error) {
     ElMessage.error('批量删除失败：' + error.message)
+  } finally {
+    deleting.value = false
+    deleteProgress.value = 0
   }
 }
 
@@ -146,6 +154,19 @@ const openGithub = async () => {
     ElMessage.error('打开 GitHub 链接失败：' + error.message)
   }
 }
+
+// 添加进度监听
+const progressHandler = (progress) => {
+  deleteProgress.value = progress
+}
+
+onMounted(() => {
+  electron.ipcRenderer.on('delete-progress', progressHandler)
+})
+
+onUnmounted(() => {
+  electron.ipcRenderer.off('delete-progress', progressHandler)
+})
 </script>
 
 <template>
@@ -202,13 +223,19 @@ const openGithub = async () => {
           <div class="action-panel">
             <el-button
               type="danger"
-              :disabled="!selectedRows.length"
+              :disabled="!selectedRows.length || deleting"
               @click="handleBatchDelete"
               size="large"
               class="delete-button"
             >
-              <el-icon class="el-icon"><Delete /></el-icon>
-              <span class="button-text">批量删除 ({{ selectedRows.length }})</span>
+              <template v-if="!deleting">
+                <el-icon class="el-icon"><Delete /></el-icon>
+                <span class="button-text">批量删除 ({{ selectedRows.length }})</span>
+              </template>
+              <template v-else>
+                <el-icon class="el-icon is-loading"><Loading /></el-icon>
+                <span class="button-text">正在删除 ({{ deleteProgress }}%)</span>
+              </template>
             </el-button>
           </div>
         </div>

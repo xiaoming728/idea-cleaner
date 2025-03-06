@@ -3,6 +3,10 @@
   "$schema": "https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json",
   "appId": "com.xiaoming728.idea-cleaner",
   "asar": true,
+  "asarUnpack": [
+    "dist/assets/**/*",
+    "src/assets/**/*"
+  ],
   "productName": "IDEA Cleaner",
   "directories": {
     "output": "release/${version}",
@@ -12,36 +16,106 @@
     "dist",
     "dist-electron"
   ],
+  "extraMetadata": {
+    "main": "dist-electron/main.js"
+  },
   "mac": {
     "target": [
-      "dmg"
+      {
+        "target": "dmg",
+        "arch": ["x64", "arm64"]
+      }
     ],
     "icon": "src/assets/logo.png",
-    "artifactName": "${productName}-Mac-${version}-Installer.${ext}"
+    "artifactName": "${productName}-Mac-${arch}-${version}-Installer.${ext}",
+    "category": "public.app-category.developer-tools",
+    "darkModeSupport": true,
+    "hardenedRuntime": true,
+    "gatekeeperAssess": false,
+    "entitlements": "build/entitlements.mac.plist",
+    "entitlementsInherit": "build/entitlements.mac.plist",
+    "identity": null,
+    "extendInfo": {
+      "CFBundleDisplayName": "IDEA Cleaner",
+      "CFBundleName": "IDEA Cleaner",
+      "CFBundleIdentifier": "com.xiaoming728.idea-cleaner",
+      "CFBundlePackageType": "APPL",
+      "CFBundleDocumentTypes": [],
+      "CFBundleTypeRole": "Editor",
+      "CFBundleVersion": "1.0.0",
+      "CFBundleURLTypes": [],
+      "NSHighResolutionCapable": true,
+      "NSHumanReadableCopyright": "Copyright © 2024 xiaoming728"
+    }
   },
+  "protocols": {
+    "name": "idea-cleaner-protocol",
+    "schemes": ["idea-cleaner"]
+  },
+  "buildDependenciesFromSource": true,
+  "nodeGypRebuild": false,
+  "npmRebuild": true,
+  "extends": null,
+  "publish": null,
   "win": {
     "target": [
       {
         "target": "nsis",
-        "arch": [
-          "x64"
-        ]
+        "arch": ["x64", "arm64"]
       }
     ],
-    "icon": "src/assets/logo.png",
-    "artifactName": "${productName}-Windows-${version}-Setup.${ext}"
+    "icon": "src/assets/logo.ico",
+    "artifactName": "${productName}-Windows-${arch}-${version}-Setup.${ext}",
+    "requestedExecutionLevel": "asInvoker",
+    "signAndEditExecutable": true,
+    "publisherName": "xiaoming728",
+    "verifyUpdateCodeSignature": false,
+    "compression": "maximum"
   },
   "nsis": {
     "oneClick": false,
     "perMachine": false,
     "allowToChangeInstallationDirectory": true,
-    "deleteAppDataOnUninstall": false
+    "deleteAppDataOnUninstall": false,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "shortcutName": "IDEA Cleaner",
+    "installerIcon": "src/assets/logo.ico",
+    "uninstallerIcon": "src/assets/logo.ico",
+    "installerHeaderIcon": "src/assets/logo.ico",
+    "artifactName": "${productName}-Windows-${arch}-${version}-Setup.${ext}",
+    "menuCategory": "Development",
+    "displayLanguageSelector": true,
+    "installerSidebar": "src/assets/logo.png",
+    "uninstallerSidebar": "src/assets/logo.png"
   },
   "linux": {
     "target": [
-      "AppImage"
+      {
+        "target": "AppImage",
+        "arch": ["x64"]
+      },
+      {
+        "target": "deb",
+        "arch": ["x64"]
+      },
+      {
+        "target": "rpm",
+        "arch": ["x64"]
+      }
     ],
     "icon": "src/assets/logo.png",
-    "artifactName": "${productName}-Linux-${version}.${ext}"
+    "artifactName": "${productName}-Linux-${arch}-${version}.${ext}",
+    "category": "Development",
+    "synopsis": "IDEA Cleaner Tool",
+    "description": "A tool for cleaning IDEA project files",
+    "desktop": {
+      "Name": "IDEA Cleaner",
+      "Comment": "Clean IDEA project files",
+      "Categories": "Development;Utility;",
+      "Terminal": false
+    },
+    "maintainer": "xiaoming728",
+    "vendor": "xiaoming728"
   }
 }

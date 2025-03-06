@@ -12,6 +12,13 @@ export default defineConfig({
       {
         // Main-Process entry file of the Electron App.
         entry: 'electron/main.js',
+        vite: {
+          build: {
+            outDir: 'dist-electron',
+            minify: false,
+            sourcemap: true,
+          },
+        },
       },
       {
         entry: 'electron/preload/index.js',
@@ -23,21 +30,34 @@ export default defineConfig({
         vite: {
           build: {
             outDir: 'dist-electron/preload',
+            minify: false,
+            sourcemap: true,
           },
         },
       },
     ]),
-    renderer(),
+    renderer({
+      nodeIntegration: false,
+    }),
   ],
+  base: './',
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
     },
   },
   build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    emptyOutDir: true,
+    minify: 'esbuild',
+    sourcemap: true,
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
+      },
+      output: {
+        manualChunks: undefined,
       },
     },
   },

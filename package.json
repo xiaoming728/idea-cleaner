@@ -1,10 +1,28 @@
 {
-  "name": "idea-projects-clear",
-  "version": "0.0.0",
+  "name": "idea-cleaner",
+  "version": "1.0.0",
   "main": "dist-electron/main.js",
-  "description": "Really simple Electron + Vue + Vite boilerplate.",
-  "author": "xiaoming728",
-  "private": true,
+  "description": "一个用于清理 IDEA 项目中 node_modules 和 target 文件夹的桌面工具",
+  "author": {
+    "name": "xiaoming728",
+    "email": "xiaoming728@gmail.com",
+    "url": "https://xiaoming728.com"
+  },
+  "homepage": "https://github.com/xiaoming728/idea-cleaner",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xiaoming728/idea-cleaner.git"
+  },
+  "private": false,
+  "license": "MIT",
+  "keywords": [
+    "electron",
+    "idea",
+    "cleaner",
+    "node_modules",
+    "target",
+    "清理工具"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build && electron-builder",

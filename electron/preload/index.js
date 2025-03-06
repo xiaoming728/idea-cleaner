@@ -16,5 +16,19 @@ contextBridge.exposeInMainWorld('electron', {
       }
       return ipcRenderer.invoke(channel, ...args)
     },
+    on: (channel, callback) => {
+      const validChannels = ['delete-progress']
+      if (!validChannels.includes(channel)) {
+        throw new Error(`Unauthorized IPC channel: ${channel}`)
+      }
+      ipcRenderer.on(channel, (event, ...args) => callback(...args))
+    },
+    off: (channel, callback) => {
+      const validChannels = ['delete-progress']
+      if (!validChannels.includes(channel)) {
+        throw new Error(`Unauthorized IPC channel: ${channel}`)
+      }
+      ipcRenderer.off(channel, callback)
+    }
   },
 }) 
