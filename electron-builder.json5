@@ -1,11 +1,12 @@
 // @see - https://www.electron.build/configuration/configuration
 {
   "$schema": "https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json",
-  "appId": "YourAppID",
+  "appId": "com.xiaoming728.idea-cleaner",
   "asar": true,
-  "productName": "YourAppName",
+  "productName": "IDEA Cleaner",
   "directories": {
-    "output": "release/${version}"
+    "output": "release/${version}",
+    "buildResources": "build"
   },
   "files": [
     "dist",
@@ -15,6 +16,7 @@
     "target": [
       "dmg"
     ],
+    "icon": "src/assets/logo.png",
     "artifactName": "${productName}-Mac-${version}-Installer.${ext}"
   },
   "win": {
@@ -26,6 +28,7 @@
         ]
       }
     ],
+    "icon": "src/assets/logo.png",
     "artifactName": "${productName}-Windows-${version}-Setup.${ext}"
   },
   "nsis": {
@@ -38,6 +41,7 @@
     "target": [
       "AppImage"
     ],
+    "icon": "src/assets/logo.png",
     "artifactName": "${productName}-Linux-${version}.${ext}"
   }
 }

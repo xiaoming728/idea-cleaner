@@ -137,6 +137,15 @@ const openBlog = async () => {
     ElMessage.error('打开链接失败：' + error.message)
   }
 }
+
+// 打开 GitHub 链接
+const openGithub = async () => {
+  try {
+    await electron.ipcRenderer.invoke('open-external', 'https://github.com/xiaoming728/idea-cleaner')
+  } catch (error) {
+    ElMessage.error('打开 GitHub 链接失败：' + error.message)
+  }
+}
 </script>
 
 <template>
@@ -144,6 +153,7 @@ const openBlog = async () => {
     <el-container>
       <el-aside width="260px" class="app-sidebar">
         <div class="sidebar-header">
+          <img src="@/assets/logo.svg" alt="IDEA Cleaner" class="app-logo" />
           <h1>IDEA Cleaner</h1>
         </div>
         <div class="sidebar-content">
@@ -220,6 +230,18 @@ const openBlog = async () => {
                 <el-avatar
                   :size="32"
                   src="https://xiaoming728.com/upload/logo.jpg"
+                  class="avatar"
+                />
+              </a>
+              <a 
+                href="https://github.com/xiaoming728/idea-cleaner" 
+                target="_blank" 
+                class="github-link"
+                @click.prevent="openGithub"
+              >
+                <el-avatar
+                  :size="32"
+                  src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"
                   class="avatar"
                 />
               </a>
@@ -332,12 +354,24 @@ html, body {
 .sidebar-header {
   padding: 20px;
   border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.app-logo {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
 }
 
 .sidebar-header h1 {
   margin: 0;
   font-size: 1.5rem;
   color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .sidebar-content {
@@ -627,6 +661,26 @@ html, body {
 }
 
 .blog-link:hover .avatar {
+  border-color: var(--accent-color);
+}
+
+.github-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.github-link:hover {
+  opacity: 0.8;
+}
+
+.github-link .avatar {
+  border: 2px solid var(--border-color);
+  transition: border-color 0.2s;
+}
+
+.github-link:hover .avatar {
   border-color: var(--accent-color);
 }
 </style>

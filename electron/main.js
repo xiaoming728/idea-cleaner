@@ -21,6 +21,9 @@ process.env.PUBLIC = process.env.VITE_DEV_SERVER_URL
   ? path.join(process.env.DIST_ELECTRON, '../public')
   : process.env.DIST
 
+// 设置应用图标路径
+const iconPath = path.join(__dirname, '../src/assets/logo.png')
+
 let win
 // 🚧 Use ['ENV_NAME'] avoid vite:define plugin
 const VITE_DEV_SERVER_URL = process.env['VITE_DEV_SERVER_URL']
@@ -121,6 +124,7 @@ function createWindow() {
     height: 800,
     minWidth: 800,
     minHeight: 600,
+    icon: iconPath, // 设置窗口图标
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
@@ -128,6 +132,11 @@ function createWindow() {
       preload: path.join(__dirname, '../dist-electron/preload/index.js'),
     },
   })
+
+  // 设置 Dock 图标 (仅在 macOS)
+  if (process.platform === 'darwin') {
+    app.dock.setIcon(iconPath)
+  }
 
   // 配置窗口加载
   if (VITE_DEV_SERVER_URL) {
