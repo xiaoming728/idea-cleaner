@@ -58,21 +58,21 @@ npm run build
 
 ## 下载
 
-访问 [Releases](../../releases) 页面下载最新版本。
+访问 [Releases](https://github.com/xiaoming728/idea-cleaner/releases/tag/v1.0.0) 页面下载最新版本。
 
 ### Windows
-- 通用版（x64 & ARM64）：[IDEA Cleaner-Windows-1.0.0-Setup.exe](../../releases/download/v1.0.0/IDEA%20Cleaner-Windows-1.0.0-Setup.exe)
-- 仅 x64：[IDEA Cleaner-Windows-x64-1.0.0-Setup.exe](../../releases/download/v1.0.0/IDEA%20Cleaner-Windows-x64-1.0.0-Setup.exe)
-- 仅 ARM64：[IDEA Cleaner-Windows-arm64-1.0.0-Setup.exe](../../releases/download/v1.0.0/IDEA%20Cleaner-Windows-arm64-1.0.0-Setup.exe)
+- 通用版（x64 & ARM64）：[IDEA Cleaner-Windows-1.0.0-Setup.exe](https://github.com/xiaoming728/idea-cleaner/releases/download/v1.0.0/IDEA%20Cleaner-Windows-1.0.0-Setup.exe)
+- 仅 x64：[IDEA Cleaner-Windows-x64-1.0.0-Setup.exe](https://github.com/xiaoming728/idea-cleaner/releases/download/v1.0.0/IDEA%20Cleaner-Windows-x64-1.0.0-Setup.exe)
+- 仅 ARM64：[IDEA Cleaner-Windows-arm64-1.0.0-Setup.exe](https://github.com/xiaoming728/idea-cleaner/releases/download/v1.0.0/IDEA%20Cleaner-Windows-arm64-1.0.0-Setup.exe)
 
 ### macOS
-- Intel Mac：[IDEA Cleaner-Mac-x64-1.0.0-Installer.dmg](../../releases/download/v1.0.0/IDEA%20Cleaner-Mac-x64-1.0.0-Installer.dmg)
-- Apple 芯片：[IDEA Cleaner-Mac-arm64-1.0.0-Installer.dmg](../../releases/download/v1.0.0/IDEA%20Cleaner-Mac-arm64-1.0.0-Installer.dmg)
+- Intel Mac：[IDEA Cleaner-Mac-x64-1.0.0-Installer.dmg](https://github.com/xiaoming728/idea-cleaner/releases/download/v1.0.0/IDEA%20Cleaner-Mac-x64-1.0.0-Installer.dmg)
+- Apple 芯片：[IDEA Cleaner-Mac-arm64-1.0.0-Installer.dmg](https://github.com/xiaoming728/idea-cleaner/releases/download/v1.0.0/IDEA%20Cleaner-Mac-arm64-1.0.0-Installer.dmg)
 
 ### Linux
-- AppImage（通用版）：[IDEA Cleaner-Linux-x86_64-1.0.0.AppImage](../../releases/download/v1.0.0/IDEA%20Cleaner-Linux-x86_64-1.0.0.AppImage)
-- Debian/Ubuntu：[IDEA Cleaner-Linux-amd64-1.0.0.deb](../../releases/download/v1.0.0/IDEA%20Cleaner-Linux-amd64-1.0.0.deb)
-- RedHat/Fedora/CentOS：[IDEA Cleaner-Linux-x86_64-1.0.0.rpm](../../releases/download/v1.0.0/IDEA%20Cleaner-Linux-x86_64-1.0.0.rpm)
+- AppImage（通用版）：[IDEA Cleaner-Linux-x86_64-1.0.0.AppImage](https://github.com/xiaoming728/idea-cleaner/releases/download/v1.0.0/IDEA%20Cleaner-Linux-x86_64-1.0.0.AppImage)
+- Debian/Ubuntu：[IDEA Cleaner-Linux-amd64-1.0.0.deb](https://github.com/xiaoming728/idea-cleaner/releases/download/v1.0.0/IDEA%20Cleaner-Linux-amd64-1.0.0.deb)
+- RedHat/Fedora/CentOS：[IDEA Cleaner-Linux-x86_64-1.0.0.rpm](https://github.com/xiaoming728/idea-cleaner/releases/download/v1.0.0/IDEA%20Cleaner-Linux-x86_64-1.0.0.rpm)
 
 ## 许可证
 
